@@ -10,7 +10,7 @@
     <header class="container">
         <div class="header-content">
            <figure>
-
+              <img src="/public/assets/images/logo.svg" alt="">
            </figure>
 
            <div class="header-text">
@@ -51,12 +51,40 @@
                         <span>weight</span>
                         <div class="input-weapper">
                             <input type="number" id="weightKG" autocomplete="off" />
-                            <label for="weight">KG</label>
+                            <label for="weight">kg</label>
 
                         </div>
                     </label>
 
                 </div>
+
+                <div class="measurements-container hidden">
+                    <label for="height">
+                        <span>Height</span>
+                        <div class="input-weapper">
+                            <input type="number" name="height" id="heightFT" autocomplete="off"/>
+                            <label for="height">ft</label>
+                        </div>
+                        <div class="input-weapper">
+                            <input type="number" name="height" id="heightIN" autocomplete="off"/>
+                            <label for="height">in</label>
+                        </div>
+                    </label>
+                    <label for="weight">
+                        <span>Weight</span>
+                        <div class="flex-weapper">
+                            <input type="number" id="weightST" autocomplete="off" />
+                            <label for="weight">kg</label>
+
+                        </div>
+                    </label>
+
+                </div>
+
+
+
+
+
 
             </div>
         </form>
