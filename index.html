@@ -72,19 +72,18 @@
                     </label>
                     <label for="weight">
                         <span>Weight</span>
-                        <div class="flex-weapper">
-
-
-                            <div class="input-weapper">
-                                <input type="number" id="weightLBS" autocomplete="off" />
-                                <label for="weight">Ibs</label>
-    
-                            </div>
+                        <div class="flex-weapper">          
 
 
                             <div class="input-weapper">
                                 <input type="number" id="weightST" autocomplete="off" />
-                                <label for="weight">kg</label>
+                                <label for="weight">St</label>
+    
+                            </div>
+
+                            <div class="input-weapper">
+                                <input type="number" id="weightLBS" autocomplete="off" />
+                                <label for="weight">Ibs</label>
     
                             </div>
 
@@ -94,16 +93,40 @@
                     </label>
 
                 </div>
+            </div>
 
+            <div class="results-card outcome hidden">
+                <div class="bmi-score">
+                    <p><strong>BMI IS ...</strong></p>
+                    <p class="results"></p>
+                </div>
+                <p class="results-summary">
+                    Your BMI suggests you are ... <span class="classification"></span>
+                </p>
+            </div>
 
-
-
-
-
+            <div class="results-card placeholder">
+                <h3>Welcome!</h3>
+                <p>Please enter your height and weight to see your BMI.</p>
             </div>
         </form>
 
     </header>
+
+    <section class="summary">
+
+        <img src="public/assets/images/image-man-eating.webp" alt="">
+        
+        <div class="summary-text">
+            <h2>What yout BMI result means</h2>
+
+            <p>
+                BMI ranges
+                under 18.5  This is described as underweight. between 18.5 and 24.9 – This is described as the 'healthy range'. between 25 and 29.9 – This is described as overweight. between 30 and 39.9 – 
+                This is described as obesity </p>
+
+        </div>
+    </section>
     
 </body>
 </html>
