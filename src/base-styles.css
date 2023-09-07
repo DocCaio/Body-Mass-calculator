@@ -221,6 +221,96 @@ input[type="radio"]:checked::before {
     width: 50%;
 }
 
+/*Custom number input styles*/
+
+/*Remove arrows form inputs*/
+
+/*Chome, Safari , Edge , Opera*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    all: unset;
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/*Create a fake outline for the inputs so take a look like they are grouped together*/
+.input-wrapper {
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    height: 69px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.input-wrapper:hover {
+    cursor: pointer;
+    border-color: var(--color-blue);
+    
+}
+
+.input-wrapper .focus {
+/*Add fucuded style*/
+background-color: var(--color-blue);
+
+}
+
+.input-wrapper input {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  letter-spacing: -0.05em;
+  color: var(--color-primary);
+  margin: 20px 0;
+  margin-left:24px;
+  width: calc(100% -48px);
+  flex-shrink: 0;
+}
+
+.input-wrapper label {
+    margin: 20px 0;
+    margin-right: 24px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: -0.05em;
+    color: var(--color-blue);
+    width: fit-content;
+}
+
+.measurements-container label {
+    width: 100%;
+}
+
+
+.measurements-container span {
+display: inline-block;
+margin-bottom: 16px;
+
+}
+
+
+/*Form elements styles*/
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+    gap: 24px;
+}
+
+form h4 {
+    align-self: flex-start;
+}
+
+.units-container {
+    display: flex;
+}
+
+
+
+
 
 
 
