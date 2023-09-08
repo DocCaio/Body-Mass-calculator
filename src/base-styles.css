@@ -306,7 +306,137 @@ form h4 {
 
 .units-container {
     display: flex;
+    justify-content: space-evenly;
+    gap: 24px;
+    width: 100%;
 }
+
+.measurements-container {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+    width: 100%;
+}
+
+.imperial {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-wrapper {
+    display: flex;
+    gap: 16px;
+}
+
+.results.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 24px;
+    width: 100%;
+    /*max-width: 264;*/
+    height: 257px;
+    background: linear-gradient(90deg, #345ff7 0%, #587dff 100%);
+    border-radius: 16px;
+}
+
+.results.card h3 ,
+.results.card p {
+    color: var(--color-white);
+}
+
+.bmi-score {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.results {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 48px;
+}
+
+.placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.placeholder h4 {
+    color: var(--color-white);
+}
+
+/*Summary section styles*/
+
+.summary-text {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 0 24px;
+}
+
+/*Tips section styles*/
+.tips {
+    padding: 56px 29px;
+    gap: 40px 0;
+    background: linear-gradient(290.1deg , rgba(214, 230 , 254, 0.25) 0% rgba(214, 252, 254 ,0));    
+}
+
+.tips-card img {
+    width: 64px;
+    height: 64px;
+    flex: none;
+    opacity: 1;
+}
+
+.tips-text {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/*Limits cection styles*/
+.limits {
+    gap: 16px;
+    padding: 0 24px;
+    margin-bottom: 96px;
+}
+
+.limits-text {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.card {
+    background: var(--color-white);
+    box-shadow: 16px 32px 56px rgb(143,174,207,0.25);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tips-card-header {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.hidden {
+    display: none;
+}
+
 
 
 
