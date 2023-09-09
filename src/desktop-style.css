@@ -50,4 +50,39 @@
         
     }
 
+    .summary-text {
+        grid-column: 8 / 12;
+        justify-self: center;
+        align-self: center; 
+        padding: 0;
+    }
+
+    .eating {
+        grid-column: 2 / 6;
+    }
+
+    .exercise {
+        grid-column: 6 / 10;
+    }
+
+    .sleep {
+        grid-column: 10 / 14;
+    }
+
+    .limits {
+       grid-template-rows: repeat(3 , 1fr);
+       gap: 32px;
+    }
+
+    .limits-text {
+        grid-column: 2 / 7;
+        grid-row:  1 / 2;
+    }
+
+    .gender {
+        grid-column: 8 / 11;
+    }
+
+    
+
 }
