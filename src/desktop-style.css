@@ -1,29 +1,53 @@
 @import url("./variable.css");
-/*CSS reset*/
 
-html {
-    box-sizing: border-box;
-    font-size: 16px;
+/*Dektop*/
+@media screen and (min-width:1200px) {
+    /*General styles*/
+
+    h1 {
+        font-size: 64px;
+    }
+
+    h2 {
+        font-size: 48px;
+    }
+
+    /*Layout*/
+
+    header {
+        height: 737px;
+    }
+
+    .header-content {
+        grid-column: 1 /10;
+        grid-row: 1 / 12;
+        align-items: flex-start;
+        text-align: left;
+
+    }
+    
+    .header-content img {
+     width: 64px;
+     height: 64px;
+     margin-bottom: 24px;
+    }
+
+    form {
+        grid-column: 7 /12;
+        grid-row: 4 / 11;
+    }
+
+    .extebded-form {
+        grid-column: 8 /12;
+        grid-row: 4 / 13;
+    }
+
+    img {
+        grid-column: 2 / 7;
+        justify-self: center;
+        align-self: center;
+        margin-left: 0;
+        
+    }
+
 }
-
-*:before,
-*:after {
-    box-sizing: inherit;
-}
-
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ol,
-ul {
-    margin: 0;
-    padding: 0;
-    font-weight: normal;
-}
-
-
