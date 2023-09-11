@@ -1,0 +1,69 @@
+@import url("./variable.css");
+
+@media screen and (min-width: 768px) {
+ 
+    /*Layout*/
+
+    header {
+        height: 871px;
+    }
+
+    .bordered {
+        border-bottom: none;
+        box-shadow: none;
+    }
+
+    .results-card {
+        flex-direction: row;
+        align-items: center;
+        padding: 16px 100px 100px 16px;
+    }
+
+    .placeholder {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .placeholder h4 {
+        color: var(--color-white);
+    }
+
+    .bmi-score {
+        width: 50%;
+    }
+
+    form {
+        grid-row: 5 / 12;
+    }
+
+    .extended-form {
+        grid-row: 5 / 13;
+    }
+
+    img {
+        grid-column: 7 / 13;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .summary-text {
+        grid-column:  7 / 13;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .limits {
+        grid-template-rows: repeat(4 , 1fr);
+    }
+
+    .limits-text {
+        grid-column:  2 / 12;
+        grid-row: 1 / 2;
+    }
+
+ 
+
+    
+}
