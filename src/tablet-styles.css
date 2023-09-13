@@ -63,6 +63,55 @@
         grid-row: 1 / 2;
     }
 
+    .gender {
+        grid-column:  2 / 7;
+        grid-row: 2 / 3;
+    }
+
+    .age {
+        grid-column:  7 / 12;
+        grid-row: 2 / 3;
+    }
+
+    .muscle {
+        grid-column:  2 / 7;
+        grid-row: 3 / 4;
+    }
+
+    .pregnancy {
+        grid-column:  7 / 12;
+        grid-row: 4 / 5;
+    }
+
+    .race {
+        grid-column:  4 / 10;
+        grid-row: 4 / 5;
+    }
+
+    /*Element specific styles*/
+
+    /*Header / formstyles*/
+
+    .header-content h1 ,
+    .header-content p {
+        max-width: none;     
+
+    }
+
+    .measurements-container {
+        flex-wrap: nowrap;
+    }
+
+    /*SUMMARY STYLES*/
+    /*Summary section styles*/
+    .tips {
+        padding: 60px 43px 60px 39px;
+    }
+
+    .tips-card {
+        flex-direction: row;
+        align-items: center;
+    }
  
 
     
