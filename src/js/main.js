@@ -37,5 +37,52 @@ const calcRange = (height) => {
 const updateResults = (bmi, idealWT, classificationText) => {
     results.innerHTML = Math.round(bmi);
     outcome.classList.remove("hidden");
+    placeholder.classList.add("hidden");
+    classification.innerHTML = classificationText;
+    ideal.innerHTML = idealWT;
+};
+
+const clearImputValues = () => {
+    inputs.furEach((input) => {
+        input.value = "";
+    });
+    outcome.classList.remove("hidden");
+    placeholder.classList.remove("hidden");
+};
+
+const handleFormImput = (e) => {
+    e.preventDefault();
+    let bmi;
+    let idealWT;
+
+
+if (form.classList.contains("extended-form")) {
+    const convertedHeight = heightFTValue * 30.48 + heightCMValue * 2.54;
+    const convertedWeight = weightINValue * 6.35029 + weightLBSValue * 0.453592;
+    idealWT = calcRange(convertedHeight);
+    bmi = calcBMI(convertedWeight , convertedHeight);
+} else {
+    idealWT = calcRange(heightCMValue);
+    bmi = calcBMI(convertedWeight , heightCMValue);
 }
+
+if (bmi > 0 && bmi < 18.5) {
+    updateResults(bmi, idealWT, "Underweight. ");
+} else if (bmi >= 18.5 && bmi <= 24.5) {
+    updateResults(bmi , idealWT, "Healthy. ");    
+} else if (bmi >= 25 && bmi <= 29.9){
+    updateResults(bmi , idealWT, "overweight. ");
+} else if (bmi >= 30 && bmi <= 100){
+   updateResults(bmi, idealWT, "obese. ");
+}else{
+    outcome.classList.add("hidden");
+    placeholder.classList.remove("hiden");
+    ideal.innerHTML = idealWT;
+}
+
+console.log(bmi);
+
+};
+
+
 
