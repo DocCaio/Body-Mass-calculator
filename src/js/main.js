@@ -84,5 +84,66 @@ console.log(bmi);
 
 };
 
+radios.forEach((radio) => {
+    radio.addEventListener("change", (e) => {
+        const isMetric = e.target.id === "metric";
+        form.classList.toggle("extended-form", !isMetric);
+        header.classList.toggle("bordered", isMetric);
+
+        metricContainer.classList.toggle("hidden", !isMetric);
+        imperialContainer.classList.toggle("hidden", isMetric);
+        clearImputValues();
+    });
+});
+
+//Need to style the imput wrapper with Js since it s 
+//seleted based on the state of the input it
+
+inputWrappers.forEach((inputWrapper) => {
+    const input = inputWrapper.querySelector("input");
+
+    input.addEventListener("focus" , () => {
+        inputWrapper.classList.add("fucus");        
+    });
+
+    input.addEventListener("blur" , () => {
+        inputWrapper.classList.remove("fucus");        
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    radios[0].checked = true; // Check the metric radio by default
+});
+
+heightCM.addEventListener("input", (e) => {
+    heightCMValue = e.target.value * 1;
+});
+
+weightKG.addEventListener("input", (e) => {
+    weightKGValue = e.target.value * 1;
+});
+
+heightFT.addEventListener("input", (e) => {
+    heightCMValue = e.target.value * 1;
+});
+
+heightIN.addEventListener("input", (e) => {
+    heightCMValue = e.target.value * 1;
+});
+
+weightST.addEventListener("input", (e) => {
+    weightLBSValue = e.target.value * 1;
+});
+
+weightST.addEventListener("input", (e) => {
+    weightLBSValue = e.target.value * 1;
+});
+
+weightLBS.addEventListener("input", (e) => {
+    weightLBSValue = e.target.value * 1;
+});
+
+form.addEventListener("input", handleFormImput);
+
 
 
