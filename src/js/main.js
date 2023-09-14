@@ -1,149 +1,140 @@
-const form = document.querySelector("form");
-const radios = document.querySelectorAll('input[name="unit"]');
-const metricContainer = document.querySelector('.metric');
-const imperialContainer = document.querySelector('.imperial');
-const outcome = document.querySelector('.outcome');
-const classification = document.querySelector('.classification');
-const ideal = document.querySelector('.ideal');
-const placeholder = document.querySelector('.placeholder');
-const heightCM = document.getElementById('heightCM');
-const weightKG = document.getElementById('weightKG');
-const heightFT = document.getElementById('heightFT');
-const heightIN = document.getElementById('heightIN');
-const weightST = document.getElementById('weightST');
-const weightLBS = document.getElementById('weightLBS');
-const results = document.querySelector('.results');
-const inputWrappers = document.querySelectorAll('.input-wrapper');
-const inputs = document.querySelectorAll('input[type="number"]');
-const header = document.querySelectorAll('.header-content');
+document.querySelector("#imperial").classList.add('add-border');
 
-let heightCMValue;
-let weightKGValue;
-let heightFTValue;
-let weightINValue;
-let weightSTValue;
-let weightLBSValue;
+var metric = true;;
 
-const calcBMI = (weight , height) => {
-    return ((weight / height ** 2) * 10000).toFixed(1);
-};
+switchUnits(true);
 
-const calcRange = (height) => {
-    const low = (18.5 * height ** 2) / 10000;
-    const height = (24.9 * height ** 2) / 10000;
-    return `${low-toFixed(1)}Kgs - ${height.toFixed(1)}Kgs.`;
-};
+document.querySelector("#metric").addEventListener('click', (event) => {
+    document.querySelector("#metric").classList.remove('add-border');
+    document.querySelector("#imperial").classList.remove('checked-2');
+    document.querySelector("#metric").classList.add('checked');
+    document.querySelector("#imperial").classList.add('add-border');
+    metric = true;
 
-const updateResults = (bmi, idealWT, classificationText) => {
-    results.innerHTML = Math.round(bmi);
-    outcome.classList.remove("hidden");
-    placeholder.classList.add("hidden");
-    classification.innerHTML = classificationText;
-    ideal.innerHTML = idealWT;
-};
+    switchUnits(metric);
 
-const clearImputValues = () => {
-    inputs.furEach((input) => {
-        input.value = "";
-    });
-    outcome.classList.remove("hidden");
-    placeholder.classList.remove("hidden");
-};
+    document.getElementById("welcome").classList.remove("gone");
+    document.getElementById("enter-wh-parag").classList.remove("gone");
+    document.getElementById("result-2").classList.add("gone");
+})
 
-const handleFormImput = (e) => {
-    e.preventDefault();
-    let bmi;
-    let idealWT;
+document.querySelector("#imperial").addEventListener('click', (event) => {
+    metric = false;
+    document.querySelector("#imperial").classList.remove('add-border');
+    document.querySelector("#metric").classList.remove('checked');
+    document.querySelector("#metric").classList.add('add-border');
+    document.querySelector("#imperial").classList.add('checked-2');
+
+    switchUnits(metric);
+
+    document.getElementById("welcome").classList.remove("gone");
+    document.getElementById("enter-wh-parag").classList.remove("gone");
+    document.getElementById("result-2").classList.add("gone");
+})
 
 
-if (form.classList.contains("extended-form")) {
-    const convertedHeight = heightFTValue * 30.48 + heightCMValue * 2.54;
-    const convertedWeight = weightINValue * 6.35029 + weightLBSValue * 0.453592;
-    idealWT = calcRange(convertedHeight);
-    bmi = calcBMI(convertedWeight , convertedHeight);
-} else {
-    idealWT = calcRange(heightCMValue);
-    bmi = calcBMI(convertedWeight , heightCMValue);
+function switchUnits(metric) {
+    document.getElementById("result-3").classList.add("gone");
+    if (metric) {
+        document.getElementById("cm-or-inch").innerHTML = "cm"
+        document.getElementById("kg-or-pound").innerHTML = "kg"
+    } else {
+        document.getElementById("cm-or-inch").innerHTML = "inch"
+        document.getElementById("kg-or-pound").innerHTML = "pound"
+    }
 }
 
-if (bmi > 0 && bmi < 18.5) {
-    updateResults(bmi, idealWT, "Underweight. ");
-} else if (bmi >= 18.5 && bmi <= 24.5) {
-    updateResults(bmi , idealWT, "Healthy. ");    
-} else if (bmi >= 25 && bmi <= 29.9){
-    updateResults(bmi , idealWT, "overweight. ");
-} else if (bmi >= 30 && bmi <= 100){
-   updateResults(bmi, idealWT, "obese. ");
-}else{
-    outcome.classList.add("hidden");
-    placeholder.classList.remove("hiden");
-    ideal.innerHTML = idealWT;
+document.getElementById("weight").addEventListener("keyup", function(event){
+    if (event.code === "Enter") {
+        calculate();
+    }
+});
+
+function calculateBMI(weight, height) {
+    return weight / (height * height);
 }
 
-console.log(bmi);
+function calculateImperialBMI(weight, height) {
+    return (weight / (height * height)) * 703;
+}
 
-};
+var calculatedBMI;
+var heightInMetres;
+var message;
 
-radios.forEach((radio) => {
-    radio.addEventListener("change", (e) => {
-        const isMetric = e.target.id === "metric";
-        form.classList.toggle("extended-form", !isMetric);
-        header.classList.toggle("bordered", isMetric);
+document.getElementById("result").addEventListener('click', (event) => {
+    calculate();
+})
 
-        metricContainer.classList.toggle("hidden", !isMetric);
-        imperialContainer.classList.toggle("hidden", isMetric);
-        clearImputValues();
-    });
-});
+function calculate() {
+    let heightVar = document.getElementById("height").value;
+    let weightVar = document.getElementById("weight").value;
 
-//Need to style the imput wrapper with Js since it s 
-//seleted based on the state of the input it
+    if (heightVar == "" || weightVar == "") {
+        document.getElementById("welcome").classList.add("gone");
+        document.getElementById("enter-wh-parag").classList.add("gone");
+        document.getElementById("result-3").classList.remove("gone")
 
-inputWrappers.forEach((inputWrapper) => {
-    const input = inputWrapper.querySelector("input");
-
-    input.addEventListener("focus" , () => {
-        inputWrapper.classList.add("fucus");        
-    });
-
-    input.addEventListener("blur" , () => {
-        inputWrapper.classList.remove("fucus");        
-    });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-    radios[0].checked = true; // Check the metric radio by default
-});
-
-heightCM.addEventListener("input", (e) => {
-    heightCMValue = e.target.value * 1;
-});
-
-weightKG.addEventListener("input", (e) => {
-    weightKGValue = e.target.value * 1;
-});
-
-heightFT.addEventListener("input", (e) => {
-    heightCMValue = e.target.value * 1;
-});
-
-heightIN.addEventListener("input", (e) => {
-    heightCMValue = e.target.value * 1;
-});
-
-weightST.addEventListener("input", (e) => {
-    weightLBSValue = e.target.value * 1;
-});
-
-weightST.addEventListener("input", (e) => {
-    weightLBSValue = e.target.value * 1;
-});
-
-weightLBS.addEventListener("input", (e) => {
-    weightLBSValue = e.target.value * 1;
-});
-
-form.addEventListener("input", handleFormImput);
+        setTimeout(() => {
+            document.getElementById("welcome").classList.remove("gone");
+            document.getElementById("enter-wh-parag").classList.remove("gone");
+            document.getElementById("result-3").classList.add("gone");
+        }, 3000)
+        return;
+    }
 
 
+    if (!metric) {
+        calculatedBMI = calculateImperialBMI(weightVar, heightVar);
+        calculatedBMI = Math.round(calculatedBMI * 10) / 10;
+        heightInMetres = (heightVar * 2.54) * 0.01;
+    } else {
+        heightInMetres = heightVar * 0.01;
+        calculatedBMI = calculateBMI(weightVar, heightInMetres);
+        calculatedBMI = Math.round(calculatedBMI * 10) / 10;
+    }
 
+    document.getElementById("welcome").classList.add("gone");
+    document.getElementById("enter-wh-parag").classList.add("gone");
+    document.getElementById("result-2").classList.remove("gone");
+
+    document.getElementById("calculated-num").innerHTML = calculatedBMI;
+
+    const idealBMImin = 18.5;
+    const idealBMImax = 25;
+
+    const idealWeightMinInKgs = idealBMImin * (heightInMetres ** 2);
+    const idealWeightMaxInKgs = idealBMImax * (heightInMetres ** 2);
+
+    const idealWeightMinInLbs = idealWeightMinInKgs * 2.2;
+    const idealWeightMaxInLbs = idealWeightMaxInKgs * 2.2;
+
+    let underweight = "Your BMI suggests that you are underweight. ";
+    let idealWeight = "Your BMI suggests that you are of ideal weight. ";
+    let overvweight = "Your BMI suggests that you are overweight. ";
+
+    if (!metric) {
+        if (calculatedBMI > 18.5 && calculatedBMI < 25) {
+            message = idealWeight + `Your ideal weight is between ${idealWeightMinInLbs.toFixed(2)} - ${idealWeightMaxInLbs.toFixed(2)} lbs.`
+        } else if (calculatedBMI < 18.5) {
+            message = underweight + `Your ideal weight is between ${idealWeightMinInLbs.toFixed(2)} - ${idealWeightMaxInLbs.toFixed(2)} lbs.`
+        } else {
+            message = overvweight + `Your ideal weight is between ${idealWeightMinInLbs.toFixed(2)} - ${idealWeightMaxInLbs.toFixed(2)} lbs.`
+        }
+    } else {
+        if (calculatedBMI > 18.5 && calculatedBMI < 25) {
+            message = idealWeight + `Your ideal weight is between ${idealWeightMinInKgs.toFixed(2)} - ${idealWeightMaxInKgs.toFixed(2)} kg.`
+        } else if (calculatedBMI < 18.5) {
+            message = underweight + `Your ideal weight is between ${idealWeightMinInKgs.toFixed(2)} - ${idealWeightMaxInKgs.toFixed(2)} kg.`
+        } else {
+            message = overvweight + `Your ideal weight is between ${idealWeightMinInKgs.toFixed(2)} - ${idealWeightMaxInKgs.toFixed(2)} kg.`
+        }
+    }
+
+    document.getElementById("ideal-weight").innerHTML = message;
+}
+
+
+
+
+  
