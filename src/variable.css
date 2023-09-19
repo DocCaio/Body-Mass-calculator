@@ -7,3 +7,26 @@
     --color-radio:rgba(52, 95 , 246 , 0.15);
 
 }
+
+
+body {
+    box-sizing: border-box;
+    position: relative;
+    width: 100vw;
+    margin: auto;
+    font-family: Inter-Regular;
+}
+
+h3 {
+    font-family: 'Inter-SemiBold';
+}
+
+@font-face {
+    font-family: 'Inter-Regular';
+    src: url('/assets/fonts/static/Inter-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Inter-SemiBold';
+    src: url('/assets/fonts/static/Inter-SemiBold.ttf');
+}

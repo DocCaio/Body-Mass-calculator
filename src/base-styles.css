@@ -93,7 +93,7 @@ header {
 .header-content {
     grid-column: 1 /13;
     grid-row: 1 /8;
-    background: linear-gradient(290.1deg, #d6e6fe 0%, rgba(214, 252, 254 ,0) 100%);
+    background: linear-gradient(290.1deg, #d6e6fe , rgba(214, 252, 254 ,0) 100%);
     border-radius: 0px 35px;
     display: flex;
     flex-direction: column;

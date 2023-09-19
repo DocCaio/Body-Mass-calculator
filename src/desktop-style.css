@@ -1,27 +1,6 @@
 @import url("./variable.css");
 
 /*Dektop*/
-body {
-    box-sizing: border-box;
-    position: relative;
-    width: 100vw;
-    margin: auto;
-    font-family: Inter-Regular;
-}
-
-h3 {
-    font-family: 'Inter-SemiBold';
-}
-
-@font-face {
-    font-family: 'Inter-Regular';
-    src: url('/assets/fonts/static/Inter-Regular.ttf');
-}
-
-@font-face {
-    font-family: 'Inter-SemiBold';
-    src: url('/assets/fonts/static/Inter-SemiBold.ttf');
-}
 
 .title-box-container {
     display: flex;
@@ -371,7 +350,7 @@ input[type="radio"] {
     margin-bottom: -1rem;
 }
 
-.middle-section-1 div{
+.middle-section-1 div {
     width: 86%;
     padding: 3rem 0 3rem 3rem;
     justify-content: center;
