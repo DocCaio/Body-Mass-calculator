@@ -333,7 +333,7 @@ input[type="radio"] {
     display: flex;
     justify-content: space-between;
     font-family: 'Inter-Regular';
-    margin-bottom: 3rem;
+    margin: 5rem;
 }
 
 .middle-section-1 img {
@@ -357,6 +357,11 @@ input[type="radio"] {
     justify-self: center;
     color: gray;
     line-height: 130%;
+}
+
+.section-1 {
+    display: flex;
+    flex-direction: column;
 }
 
 .curved-line-left {
@@ -386,7 +391,7 @@ input[type="radio"] {
     display: block;
     width: 90%;
     background-image: linear-gradient(to left, #f6fbff, white);
-    margin: 8rem 0;
+    margin: 8rem 5rem;
     padding: 3rem;
     border-radius: 20px;
   }
@@ -400,13 +405,13 @@ input[type="radio"] {
 .section-2 div p {
     color: gray;
     font-size: 0.9rem;
-    line-height: 150%;
+    line-height: 150%;    
   }
 
 .section-3 {
     display: flex;
     padding: 2rem;
-    margin-top: -4rem;
+    margin-left: 5rem;
     position: relative;
 }
 
