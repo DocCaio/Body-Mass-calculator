@@ -2,6 +2,10 @@
 
 /*Dektop*/
 
+.landing-spot-container {
+    padding: 5rem;
+}
+
 .title-box-container {
     display: flex;
     flex-direction: column;
